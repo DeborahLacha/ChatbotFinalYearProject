@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Breast Cancer Severity Prediction</title>
+  </head>
+  <body>
+    <h1>Breast Cancer Severity Prediction</h1>
+    <form method="POST" action="/predict">
+      <label for="lump">Lump in the breast:</label>
+      <input type="text" id="lump" name="Lump in the breast"><br>
+
+      <label for="swelling">Thickening or swelling in the breast:</label>
+      <input type="text" id="swelling" name="Thickening or swelling in the breast"><br>
+
+      <label for="size">Change in the size or shape of the breast:</label>
+      <input type="text" id="size" name="Change in the size or shape of the breast"><br>
+
+      <label for="dimpling">Dimpling or puckering of the skin on the breast:</label>
+      <input type="text" id="dimpling" name="Dimpling or puckering of the skin on the breast"><br>
+
+      <label for="nipple">Inverted nipple:</label>
+      <input type="text" id="nipple" name="Inverted nipple"><br>
+
+      <label for="redness">Redness or scaling on the breast or nipple:</label>
+      <input type="text" id="redness" name="Redness or scaling on the breast or nipple"><br>
+
+      <label for="discharge">Nipple discharge:</label>
+      <input type="text" id="discharge" name="Nipple discharge"><br>
+
+      <label for="lymph">Swollen lymph nodes under the arm:</label>
+      <input type="text" id="lymph" name="Swollen lymph nodes under the arm"><br>
+
+      <input type="submit" value="Predict">
+    </form>
+  </body>
+</html>

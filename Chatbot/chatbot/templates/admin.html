@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    
+<div class="container-fluid">
+<h1 class="text-center" style="color:black;"> Manage facilities</h1>
+        <div class="row">
+            <div class="col-sm-2"></div>
+
+            <!-- content goes here -->
+            <div class="col-sm-8">
+<h2 >facility List <button class="btn btn-primary float-right" data-toggle="modal" data-target="#myModal">Add facility</button></h2>
+
+{%with messages = get_flashed_messages()%}
+{%if messages%}
+{% for message in messages %}
+<div class="alert alert-success alert-dismissable" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {{message}}
+</div>
+{%endfor%}
+{%endif%}
+{%endwith%}
+
+
+
+    <!-- Enter New facility Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+   
+                <div class="modal-header">
+                    <h5 class="modal-title text-primary" style="align-content: center;">Please Add New facility</h5>    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  
+
+                <div class="modal-body">
+                    
+                    <form action="{{ url_for('insert')}}" method="POST">
+                        <div class="form-group">
+                          <label> hospital name </label>
+                          <input type="text" name="hname" class="form-control" id="exampleFormControlInput1">
+                        </div>
+
+                        <div class="form-group">
+                            <label>hospital_type </label>
+                            <input type="text" name="hospital_type" class="form-control" id="exampleFormControlInput1" >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rating</label>
+                            <input type="text" name="rating" class="form-control" id="exampleFormControlInput1" >
+                          </div>
+                          <div class="form-group">
+                            <label>working_hour</label>
+                            <input type="text" name="working_hour"  class="form-control" id="exampleFormControlInput1" >
+                          </div>
+                          <div class="form-group">
+                            <label>severity_levels</label>
+                            <input type="text" name="severity_levels"  class="form-control" id="exampleFormControlInput1" >
+                          </div>
+ 
+ 
+                          <button type="submit" class="btn btn-primary mb-2">Save</button>
+                     
+                      </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- End of Enter New Student Modal -->
+
+
+
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Hospital Name</th>
+            <th scope="col">hospital_type</th>
+            <th scope="col">Rating/5</th>
+            <th scope="col">working hour</th>
+            <th scope="col"> severity_levels</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in facility %}
+        <tr>
+        <td>{{row.0}}</td>
+        <td>{{row.1}}</td>
+        <td>{{row.2}}</td>
+        <td>{{row.3}}</td>
+        <td>{{row.4}}</td>
+        <td>{{row.5}}</td>
+        <td>
+            <a href="/update/{{row.0}}" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modaledit{{row.0}}">Edit</a> </t>
+            <a href="/delete/{{ row.0 }}" onclick="return confirm('Are Sure Want To Deleted ?')" class="btn btn-danger btn-sm">Delete</a>
+
+        </td>
+    </tr>
+
+
+        <!-- Enter New Student Modal -->
+        <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+       
+                    <div class="modal-header">
+                        <h5 class="modal-title text-primary" style="align-content: center;">Update facility Details</h5>    
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      
+    
+                    <div class="modal-body">
+                        
+                        <form action="{{ url_for('update')}}" method="POST">
+                            <input type="hidden" name="id" value="{{row.0}}">
+                            <div class="form-group">
+                              <label>Hospital Name</label>
+                              <input value="{{row.1}}" type="text" name="hname" class="form-control" id="exampleFormControlInput1">
+                            </div>
+    
+                            <div class="form-group">
+                                <label>hospital_type</label>
+                                <input value="{{row.2}}" type="text" name="hospital_type" class="form-control" id="exampleFormControlInput1">
+                            </div>
+    
+                            <div class="form-group">
+                                <label>user rating</label>
+                                <input value="{{row.3}}" name="rating" type="text" class="form-control" id="exampleFormControlInput1" >
+                              </div>
+                              <div class="form-group">
+                                <label>working hours</label>
+                                <input value="{{row.4}}" name="working_hour" type="text" class="form-control" id="exampleFormControlInput1" >
+                              </div>
+                              <div class="form-group">
+                                <label>severity_levels</label>
+                                <input value="{{row.5}}" name="severity_levels" type="text" class="form-control" id="exampleFormControlInput1" >
+                              </div>
+                              <button type="submit" class="btn btn-success mb-2">Update</button>
+                         
+                          </form>
+    
+    
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    
+    
+        <!-- End of Edit Student Modal -->
+
+
+
+
+        {% endfor %}
+    </tbody>
+
+</table>
+            </div>
+            <!-- Content ends here-->
+
+
+            <div class="col-sm-2"></div>
+
+        </div>
+    </div>
+
+ <script type="text/javascript" src="{{ url_for('static', filename='js1/jquery-3.2.1.min.js') }}"></script>    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
+</body>
+</html>

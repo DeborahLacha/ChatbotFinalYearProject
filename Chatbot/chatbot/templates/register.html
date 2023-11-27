@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Register </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">   
+        <style>
+      body{
+        background: linear-gradient(#141e30, #243b55);
+      }
+          .header{
+            padding: 5px 120px;
+            width: 150px;
+            height: 70px;
+            background-color: #236B8E;
+        }
+     
+        .border{
+            padding: 80px 50px;
+            width: 400px;
+            height: 850px;
+            border: 1px solid #236B8E;
+            border-radius: 0px;
+            background-color: #9AC0CD;
+        }
+
+        .btn {
+            padding: 10px 40px;
+            background-color: #236B8E;
+            color: #FFFFFF;
+            font-style: oblique;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+
+        .textbox{
+            padding: 10px 40px;
+            background-color: #236B8E;
+            text-color: #FFFFFF;
+            border-radius: 10px;
+        }
+             
+        ::placeholder {
+            color: #FFFFFF;
+            opacity: 1;
+            font-style: oblique;
+            font-weight: bold;
+        }
+
+        .word{
+            color: #FFFFFF;
+            font-style: oblique;
+            font-weight: bold;
+        }
+
+        .bottom{
+            color: #236B8E;
+            font-style: oblique;
+            font-weight: bold;
+        }
+          
+        </style>          
+    </head>
+    <body></br></br></br></br></br>
+      <div align="center">
+        <div align="center" class="border">
+           <div class="header">
+              <h1 class="word">Register</h1>
+           </div></br></br></br>
+          <h2 class="word">
+              <form action="{{ url_for('register') }}" method="post">
+                <div class="msg">{{ msg }}</div>
+                  <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"  required/></br></br>
+                  <input id="password" name="password" type="password" placeholder="Enter Your Password" class="textbox" required/></br></br>
+                  <input id="firstname" name="firstname" type="text" placeholder="Enter Your First name" class="textbox"  required/></br></br>
+                  <input id="lastname" name="lastname" type="text" placeholder="Enter Your Last name" class="textbox"  required/></br></br>
+                  <input id="age"    name="age" type="text" placeholder="Enter Your age" class="textbox"  required/></br></br>
+                  <input id="gender" name="gender" type="text" placeholder="Enter Your gender" class="textbox"  required/></br></br>
+                  <input id="address" name="address" type="text" placeholder="Enter Your Primary address" class="textbox"  required/></br></br>
+                  <input id="phoneno" name="phoneno" type="text" placeholder="Enter Your Phone number" class="textbox"  required/></br></br>
+                  <input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox" required/></br></br>
+                  <input id="role" name="role" type="text" placeholder="Enter your role" class="textbox" required /></br></br>
+                  <input type="submit" class="btn" value="Sign Up"></br>
+                
+                </form>
+              </h2>
+              <p class="bottom">Already have an account?  <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
+            </div>
+          </div>
+        
+        
+                </body>
+</html>
