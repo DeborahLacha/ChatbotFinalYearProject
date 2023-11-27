@@ -1,7 +1,7 @@
 #  The Deep-Learning Chatbot
 
 ## About this Project
-A multipurpose chatbot made using Python3, who can chat with you and help in assisting pancreatic patients . It uses NLP and Deep-Learning to analyse the user's message, classify it into the a broader category and then reply with a suitable message or the required information. It is hosted using flask and is available on heroku at the link specified above. 
+A multipurpose chatbot made using Python3, who can chat with you and help in assisting breast patients . It uses NLP and Deep-Learning to analyse the user's message, classify it into the a broader category and then reply with a suitable message or the required information. It is hosted using flask and is available on heroku at the link specified above. 
 
 ## Project UI
 Home Page:
