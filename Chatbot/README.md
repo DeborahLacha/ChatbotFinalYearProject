@@ -30,9 +30,5 @@ flask run
 
 5. Enter the url provided after running the previous commands into your web browser
 
-Ted is now ready to chat!
-
-#### I would like to thank [Ashutosh Varma](https://github.com/ashutoshvarma) and [Manorit Chawdhry](https://github.com/manorit2001) for their help and contribution to this project. Do check out their Github accounts!
-
-##### Copyright (c) 2020 Karan-Malik
+It is now ready to chat!
 
